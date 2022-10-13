@@ -206,7 +206,7 @@
 
 
 
-	<form class="form  form--centered-button" name="Onboarding" data-sheet-id="" netlify>
+	<form id="onboarding" class="form  form--centered-button" name="Onboarding" onsubmit="APICaller()" netlify>
 	
 		<div class="form__inputs">
 			
@@ -221,7 +221,7 @@
 									Enter your name:
 							</label>
 						</div>
-						<input class="text-input js-form-input   " type="text" id="FNAME-60094-0" name="FNAME" required="" placeholder="Your name">
+						<input class="text-input js-form-input   " type="text" id="name" name="FNAME" required="" placeholder="Your name">
 					</div>
 				
 			
@@ -236,7 +236,7 @@
 									Enter your email
 							</label>
 						</div>
-						<input class="text-input js-form-input   " type="email" id="WEBSITE-60094-1" name="WEBSITE" required="" placeholder="website.com">
+						<input class="text-input js-form-input   " type="email" id="email" name="EMAIL" required="" placeholder="website.com">
 					</div>
 				
 			
@@ -251,7 +251,7 @@
 									Enter your business name
 							</label>
 						</div>
-						<input class="text-input js-form-input   " type="text" id="FNAME-60094-2" name="FNAME" required="" placeholder="Your name">
+						<input class="text-input js-form-input   " type="text" id="merchant_name" name="BNAME" required="" placeholder="Your name">
 					</div>
 				
 			
@@ -266,7 +266,7 @@
 									Enter a merchant nickname
 							</label>
 						</div>
-						<input class="text-input js-form-input   " type="text" id="OTHER-60094-3" name="OTHER" required="" placeholder="Type here">
+						<input class="text-input js-form-input   " type="text" id="merchant_code" name="MNICKNAME" required="" placeholder="Type here">
 					</div>
 				
 			
@@ -281,7 +281,7 @@
 									Enter your country code
 							</label>
 						</div>
-						<select required="" class="text-input    " name="SELECT" id="SELECT-60094-4">
+						<select required="" class="text-input    " name="COUNTRYCODE" id="country_code">
 							 <option value="">Select...</option> 
 							
 								
@@ -1295,7 +1295,7 @@
 									Company Registration Number
 							</label>
 						</div>
-						<input class="text-input js-form-input   " type="text" id="AGREEMENT-60094-5" name="AGREEMENT" required="" placeholder="your@email.com">
+						<input class="text-input js-form-input   " type="number" id="company_registration_number" name="REGISTRATION-NUMBER" required="" placeholder="your@email.com">
 					</div>
 				
 			
@@ -1310,7 +1310,7 @@
 									Company Registration Address
 							</label>
 						</div>
-						<textarea required="" class="textarea js-form-input   " id="OTHER-60094-6" name="OTHER" placeholder="Type here"></textarea>
+						<textarea required="" class="textarea js-form-input   " id="company_registration_address" name="REGISTRATION-ADDRESS" placeholder="Type here"></textarea>
 					</div>
         
 			
@@ -1325,7 +1325,7 @@
 									Company Incorporation Date
 							</label>
 						</div>
-						<input class="text-input js-form-input   " type="text" id="OTHER-60094-7" name="OTHER" required="" placeholder="Type here">
+						<input class="text-input js-form-input   " type="date" id="registration-date" name="INCORPORATION-DATE" required="" placeholder="Type here">
 					</div>
 				
 			
@@ -1339,7 +1339,7 @@
 
 
 
-	<button class="button js-submit-button button--accent-bg " type="submit"><span class="button__text">Get Started</span>
+	<button class="button button--accent-bg " type="submit" ><span class="button__text">Get Started</span>
 		<div class="spinner"></div>
 		<div class="button__submit_success">
 			<div class="button__success_circle "></div>
@@ -1401,7 +1401,7 @@
 							
 								
 									<li class="cta_form-04__feature ">
-										instant sign up
+										You will receive an email with your login details
 									</li>
 								
 							
@@ -1560,7 +1560,56 @@
     }
 </style>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<script>
+
+function APICaller() {   
+
+var myForm = document.getElementById('onboarding');
+console.log(myForm.email.value)
+console.log(myForm.name.value)
+console.log(myForm.merchant_code.value)
+console.log(myForm.merchant_name.value)
+console.log(myForm.country_code.value)
+console.log(myForm.company_registration_number.value)
+console.log(myForm.company_registration_address.value)
+
+
+
+	var settings = {
+       "url": "https://api-stg.zamplabs.com/v1/merchant",
+       "method": "POST",
+       "timeout": 0,
+       "headers": {
+       "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({
+    "email": myForm.email.value,
+    "name": myForm.name.value,
+    "merchant_code": myForm.merchant_code.value,
+    "merchant_name": myForm.merchant_name.value,
+    "country_code": myForm.country_code.value,
+    "company_registration_number": myForm.company_registration_number.value,
+    "company_registration_address": myForm.company_registration_address.value
+  }),
+  
+};
+
+
+
+	$.ajax(settings).done(function (response) {
+  console.log(response);
+});  
+ }   
+
+//  $("#onboarding").submit(function(e) {
+//     e.preventDefault();
+// });
+
+
+
+</script>
 
 
 
