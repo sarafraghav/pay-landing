@@ -206,7 +206,7 @@
 
 
 
-	<form id="onboarding" class="form  form--centered-button" action="https://dashboard.stg.zamplabs.com/" name="Onboarding" onsubmit="APICaller()" netlify>
+	<form id="onboarding" class="form  form--centered-button" name="Onboarding" onsubmit="APICaller()" netlify>
 	
 		<div class="form__inputs">
 			
@@ -1567,15 +1567,6 @@
 function APICaller() {   
 
 var myForm = document.getElementById('onboarding');
-console.log(myForm.email.value)
-console.log(myForm.name.value)
-console.log(myForm.merchant_code.value)
-console.log(myForm.merchant_name.value)
-console.log(myForm.country_code.value)
-console.log(myForm.company_registration_number.value)
-console.log(myForm.company_registration_address.value)
-
-
 
 	var settings = {
        "url": "https://api-stg.zamplabs.com/v1/merchant",
