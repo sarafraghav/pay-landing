@@ -4,7 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<link rel="stylesheet" href="./Zamp Pay_ Onboarding_files/main.8cf85f36cfbd.css"><script src="./Zamp Pay_ Onboarding_files/main.b81dff8432c9.js" defer=""></script>
-	
+
 		<link href="./Zamp Pay_ Onboarding_files/css" rel="stylesheet"><style>
 			.custom_fonts .custom-google-fonts-enabled * {
 				font-family: 'Bai Jamjuree', Helvetica, sans-serif;
@@ -37,7 +37,14 @@
   
   <link href="/onboard.html" rel="canonical"><meta name="twitter:url"><meta property="og:url" content="https://writer-soothe-099.unicornplatform.page/onboard/">
 	
-	
+  <style>
+	/* Popup container - can be anything you want */
+	.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+}
+	</style>
 	
   
 </head>
@@ -206,7 +213,7 @@
 
 
 
-	<form id="onboarding" class="form  form--centered-button" name="Onboarding" onsubmit="APICaller()" netlify>
+	<form id="onboarding" class="form  form--centered-button" name="Onboarding" onsubmit="APICaller()" netlify data-custom-popup-id="popup-01-46950">
 	
 		<div class="form__inputs">
 			
@@ -1339,13 +1346,15 @@
 
 
 
-	<button class="button button--accent-bg " type="submit" ><span class="button__text">Get Started</span>
+	<button class="button button--accent-bg " type="submit" id="myBtn"  data-toggle="modal" data-target="#success_tic"><span class="button__text">Get Started</span>
 		<div class="spinner"></div>
 		<div class="button__submit_success">
 			<div class="button__success_circle "></div>
 			<div><svg class="button__success_tick" width="13" height="13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><path class="button__success_tick_path" stroke="#FFF" d="M0 8l5.119 3.873L11.709.381" fill="none" fill-rule="evenodd" stroke-linecap="square"></path></svg></div>
 		</div><span class="icon"><svg viewBox="0 0 13 10" xmlns="http://www.w3.org/2000/svg"><path d="M12.823 4.164L8.954.182a.592.592 0 0 0-.854 0 .635.635 0 0 0 0 .88l2.836 2.92H.604A.614.614 0 0 0 0 4.604c0 .344.27.622.604.622h10.332L8.1 8.146a.635.635 0 0 0 0 .88.594.594 0 0 0 .854 0l3.869-3.982a.635.635 0 0 0 0-.88z" fill-rule="nonzero" fill="#00396B" class="fill-main"></path></svg></span>
 	</button>
+
+	<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#success_tic">Open Modal</button> -->
 
 				</div>
 			
@@ -1396,7 +1405,6 @@
         
 	</form>
 
-
 						<ul class="cta_form-04__features">
 							
 								
@@ -1424,6 +1432,62 @@
 
 	
 
+
+	<!-- POPUP -->
+
+	<div id="myModal" class="popup-component modal js-custom-popup page-component__bg_image_box    bg-white-color  first_component   popup-component_no-image" data-custom-popup-id="popup-01-46950" id="myPopup">
+		<button class="popup-component__close-button js-close-custom-popup-button">
+			<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M20.0806 17.9986L30.6275 5.42673C30.8043 5.2178 30.6556 4.90039 30.3824 4.90039H27.1762C26.9873 4.90039 26.8065 4.98477 26.682 5.12941L17.9833 15.4995L9.28465 5.12941C9.16411 4.98477 8.98331 4.90039 8.79045 4.90039H5.5842C5.31099 4.90039 5.16233 5.2178 5.33911 5.42673L15.886 17.9986L5.33911 30.5705C5.29951 30.6171 5.2741 30.674 5.26591 30.7346C5.25771 30.7952 5.26708 30.8568 5.29288 30.9122C5.31869 30.9677 5.35985 31.0145 5.41149 31.0472C5.46313 31.0799 5.52307 31.0972 5.5842 31.0968H8.79045C8.97929 31.0968 9.16009 31.0124 9.28465 30.8678L17.9833 20.4977L26.682 30.8678C26.8025 31.0124 26.9833 31.0968 27.1762 31.0968H30.3824C30.6556 31.0968 30.8043 30.7794 30.6275 30.5705L20.0806 17.9986Z" fill="white"></path>
+			</svg>				
+		</button>
+		<div class="popup-component__bg_image_box">
+			
+			
+			<div class="page-component__bg_overlay_box " %%="">
+				
+			</div>
+			
+			<div class="page-component__wrapper" style="z-index: 10;padding-top: 1px;padding-bottom: 1px;">
+				
+
+
+
+    
+    
+    
+    <div class="popup-01 graphics-image default-graphics-image">
+        <div class="container container--premid popup-01__container">
+            <div class="popup-01__left">
+                <div class="popup-01__content">
+                    
+                        <h2 id="modal-heading" class="heading popup-01__heading">Sign up Successful!</h2>
+                    
+                    
+                        <p  class="content_box popup-01__text"></p><p id="modal-text">You can now go to our dashboard and login using the email you entered in the form.&nbsp;</p>
+<p></p>
+                    
+                    <!-- <div class="popup-01__cta-box">
+                        
+	
+<div class="buttons-set"><ul class="buttons-set__list"><li class="buttons-set__item"><a data-stripe-product-id="" data-stripe-mode="payment" data-successful-payment-url="" data-cancel-payment-url="" class="button button--accent-bg " href="https://writer-soothe-099.unicornplatform.page/onboard/dashboard.dev.zamplabs.com" target="_blank"><span class="button__text">Dashboard</span></a></li></ul></div>
+
+                    </div> -->
+                </div>
+            </div>
+            
+              
+            
+        </div>
+    </div>
+
+
+
+
+
+			</div>
+		</div>
+	</div>
 
 
     
@@ -1589,16 +1653,26 @@ var myForm = document.getElementById('onboarding');
 
 
 
-	$.ajax(settings).done(function (response) {
+$.ajax(settings).done(function (response) {
   console.log(response);
+  var modal = document.getElementById("myModal");
+  document.getElementById('modal-heading').innerText = "Signup successful"
+  document.getElementById('modal-text').innerText = "You can now go to our dashboard and login using the email you entered in the form."
+  modal.style.display = "block";
+}).fail(function (response){
+	console.log(JSON.parse(response.responseText).error.message)
+	var modal = document.getElementById("myModal");
+	document.getElementById('modal-heading').innerText = "Signup Unsuccessful"
+	document.getElementById('modal-text').innerText = JSON.parse(response.responseText).error.message
+	modal.style.display = "block";
 });  
 
 
  }   
 
-//  $("#onboarding").submit(function(e) {
-//     e.preventDefault();
-// });
+ $("#onboarding").submit(function(e) {
+    e.preventDefault();
+});
 
 
 
@@ -1606,6 +1680,39 @@ var myForm = document.getElementById('onboarding');
 
 
 
+	</script>
+	
+	 <script>
+		// Get the modal
+		var modal = document.getElementById("myModal");
+		// var btn = document.getElementById("myBtn");
+		// btn.onclick = function() {
+		//   modal.style.display = "block";
+		// }
+		window.onclick = function(event) {
+			modal.style.display = "none";
+		}
+
+
+		
+		
+		// Get the button that opens the modal
+		
+		
+		// Get the <span> element that closes the modal
+		
+		// When the user clicks the button, open the modal 
+		
+		
+		// When the user clicks on <span> (x), close the modal
+
+		
+		// When the user clicks anywhere outside of the modal, close it
+		
+		</script>
+	
+
 
 
 </body></html>
+
