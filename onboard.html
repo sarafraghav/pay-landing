@@ -643,6 +643,13 @@
 			</div>
 		</div>
 	</div>
+
+</div>
+
+<div class="zamp-sdk-loading-container" style="display: none" id="loader">
+  <div class="zamp-sdk-loading">
+    <img src="./assets/default-loader.gif" width="50px" />
+  </div>
 </div>
 
 
@@ -658,6 +665,23 @@
     }
     .footer-04__info{
 	    font-size: 14px;
+    }
+
+    .zamp-sdk-loading-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vw;
+      z-index: 12123123;
+      background-color: rgba(99, 99, 99, 0.2);
+    }
+
+    .zamp-sdk-loading {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 40%);
     }
 </style>
 
@@ -686,9 +710,10 @@ maxDate();
 function APICaller() {   
 
 var myForm = document.getElementById('onboarding');
+document.getElementById('loader').setAttribute('style', 'display: block');
 
 	var settings = {
-       "url": "https://api-dev.zamplabs.com/v1/merchant",
+       "url": "https://api.zamplabs.com/v1/merchant",
        "method": "POST",
        "timeout": 0,
        "headers": {
@@ -707,12 +732,18 @@ var myForm = document.getElementById('onboarding');
   
 };
 
+
+
 $.ajax(settings).done(function (response) {
   const encoded = btoa(response.data.qr_string);
   window.location.href=`onboarding-success.html?data=${encoded}`;
+  document.getElementById('loader').setAttribute('style', 'display: none');
+
 }).fail(function (response){
 	document.getElementById('notifier').classList.add('error-notifier-show');
-  debugger
+
+  document.getElementById('loader').setAttribute('style', 'display: none');
+
 	document.getElementById('notifier-desc').innerText = response.responseJSON.error.message;
   setTimeout(function () {
     document.getElementById('notifier').classList.remove('error-notifier-show');
