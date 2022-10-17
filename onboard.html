@@ -708,14 +708,12 @@ var myForm = document.getElementById('onboarding');
 };
 
 $.ajax(settings).done(function (response) {
-  console.log(response);
-  var modal = document.getElementById("myModal");
-  document.getElementById('modal-heading').innerText = "Signup successful"
-  document.getElementById('modal-text').innerText = "You can now go to our dashboard and login using the email you entered in the form."
-  modal.style.display = "block";
+  const encoded = btoa(response.data.qr_string);
+  window.location.href=`onboarding-success.html?data=${encoded}`;
 }).fail(function (response){
 	document.getElementById('notifier').classList.add('error-notifier-show');
-	document.getElementById('notifier-desc').innerText = response.responseText;
+  debugger
+	document.getElementById('notifier-desc').innerText = response.responseJSON.error.message;
   setTimeout(function () {
     document.getElementById('notifier').classList.remove('error-notifier-show');
   }, 2000);
