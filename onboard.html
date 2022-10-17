@@ -665,8 +665,7 @@
 
 <script>
 
-$( document ).ready(function() {
-  $(function(){
+function maxDate() {
     var dtToday = new Date();
 
     var month = dtToday.getMonth() + 1;
@@ -679,11 +678,11 @@ $( document ).ready(function() {
         day = '0' + day.toString();
 
     var maxDate = year + '-' + month + '-' + day;    
-    $('#registration-date').attr('max', maxDate);
-});
-});
+    debugger
+    document.getElementById('company_registration_date').max = maxDate;
+};
 
-
+maxDate();
 
 function APICaller() {   
 
