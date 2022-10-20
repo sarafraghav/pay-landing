@@ -56,6 +56,7 @@
 		max-height:300px
 	  }
 
+
 	  @media (max-width: 600px){.header-23__img-new{max-height:200px}}
 
 .header-23__right {
@@ -63,7 +64,13 @@
 	flex-direction: row-reverse;
 }
 
-@media (max-width: 1200px){.header-23__right {	justify-content: center}}
+@media (max-width: 1200px){
+	.header-23__right {display: none !important; }
+	.header-23__left { padding-bottom: 0 !important; }
+	.page-component__wrapper {
+		padding-bottom: 1px !important;
+	}
+}
 
 
 		</style>
@@ -169,7 +176,7 @@
 			
 		</div>
     
-		<div class="page-component__wrapper" style="z-index: 14;padding-top:70px;padding-bottom:70px;">
+		<div class="page-component__wrapper" style="z-index: 14;padding-top:50px;padding-bottom:50px;">
 			
 	
 	
