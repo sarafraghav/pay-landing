@@ -745,6 +745,9 @@ maxDate();
 
 function APICaller() {   
 
+const queryString = new URLSearchParams(window.location.search);
+const refId = queryString.get('ref-id');
+
 var myForm = document.getElementById('onboarding');
 document.getElementById('loader').setAttribute('style', 'display: block');
 
@@ -764,11 +767,9 @@ document.getElementById('loader').setAttribute('style', 'display: block');
       "company_registration_number": myForm.company_registration_number.value,
       "company_registration_address": myForm.company_registration_address.value,
       "company_registration_date": new Date(myForm.company_registration_date.value).getTime(),
+	  ...refId && { "qr_gateway_reference_id": refId }
     }),
-  
 };
-
-
 
 $.ajax(settings).done(function (response) {
   const encoded = btoa(response.data.qr_string);
